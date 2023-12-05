@@ -1,10 +1,11 @@
-remote_theme :
+remote_theme : minimal-mistakes@master
 plugins :
+- jekyll-remote-theme
 
 
 
 title : Indian classical musical instrument recognizer
-description : 
+description : An image classification API that can identify ten different indian classical musical instruments
 
 author :
   name : Moinul Hossain Dhrubo
