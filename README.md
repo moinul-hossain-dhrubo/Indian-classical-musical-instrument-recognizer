@@ -17,7 +17,9 @@ The following ten categories of Indian classical musical instruments can be clas
 # Dataset Preparation
 
 **Data collection :** downloaded images with each category name using the `search_image_ddg()` function from the DuckDuckGo search engine. <br/>
+
 **DataLoader:** Used fastai DataBlock API to set up the DataLoader with 13% validation data. <br/>
+
 **Data Augmentation:** fastai provides default data augmentation which operates in GPU.
 Details can be found in `notebooks/data_prep_training_cleaning_and_inference.ipynb`.
 
