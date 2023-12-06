@@ -29,7 +29,7 @@ Details can be found in `notebooks/data_prep_training_cleaning_and_inference.ipy
 
 # Model Deployment
 
-I utilized the HuggingFace Spaces Gradio App to deploy the model. The implementation can be found in deployment folder or [here].
+I utilized the HuggingFace Spaces Gradio App to deploy the model. The implementation can be found in deployment folder or [here](https://huggingface.co/spaces/mhdhrubo/indian_classical_musical_instrument_recognizer).
 
 # API integration with GitHub Pages
 
