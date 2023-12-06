@@ -1,7 +1,7 @@
 # Indian-classical-musical-instrument-recognizer
 
-Building of an image classifier that involves data collection, cleaning, model training, deployment and API integration.
-The model can classify 10 different types of indian classical musical instruments, that are :
+Construction of an image classifier that involves data gathering, cleaning, deep learning model training, deploying, and integrating APIs.
+The following ten categories of Indian classical musical instruments can be classified by the model:
 
 1. Harmonium
 2. Bansuri
@@ -16,21 +16,21 @@ The model can classify 10 different types of indian classical musical instrument
 
 # Dataset Preparation
 
-**Data collection :** Downloaded from DuckDuckGo using each category name. <br/>
-**DataLoader:** Used fastai DataBlock API to set up the DataLoader. <br/>
+**Data collection :** downloaded images with each category name using the `search_image_ddg()` function from the DuckDuckGo search engine. <br/>
+**DataLoader:** Used fastai DataBlock API to set up the DataLoader with 13% validation data. <br/>
 **Data Augmentation:** fastai provides default data augmentation which operates in GPU.
-Details can be found in 
+Details can be found in `notebooks/data_prep_training_cleaning_and_inference.ipynb`.
 
 # Training and Data Cleaning
 
-**Training:** Fine-tuned a resnet34 model for 2 epochs (5 times) and got upto ~95% accuracy.
+**Training:** Fine-tuned a resnet34 model for 3 epochs (3 times) and 2 epoch(2 times) respectively and got upto ~95% accuracy.
 
-**Data Cleaning:** This part took the highest time. Since the data was collected using a search engine(DuckDuckgo), the images became noisy. Also, there were several redundant images.(e.g. I tried to download image the instrument santoor but it appears that santoor is also a beauty product company. So those types of images were also been downloaded) . I cleaned and updated data using fastai ImageClassifierCleaner, also some of them were manually added and deleted . I cleaned the data each time after training or finetuning, except for the last time which was the final iteration of the model.
+**Data Cleaning:** The majority of the time was spent on this. The photos became noisy as DuckDuckgo, a search engine, was used to gather the data. There were multiple redundant photos as well.(For instance, when I attempted to download the image of the instrument from Santoor, it turned out that there is a company with same name that makes cosmetics. Thus, those kinds of pictures were also downloaded). Using fastai ImageClassifierCleaner, I updated and cleaned the data. I also manually added and removed a few records. With the exception of the last instance, which was the model's final iteration, I cleaned the data after training or fine-tuning each time.
 
 # Model Deployment
 
-I deployed to model to HuggingFace Spaces Gradio App. The implementation can be found in deployment folder or [here].
+I utilized the HuggingFace Spaces Gradio App to deploy the model. The implementation can be found in deployment folder or [here].
 
 # API integration with GitHub Pages
 
-The deployed model API is integrated [here](https://moinul-hossain-dhrubo.github.io/Indian-classical-musical-instrument-recognizer/) in GitHub Pages Website. Implementation and other details can be found in docs folder.
+The deployed model API is integrated [here](https://moinul-hossain-dhrubo.github.io/Indian-classical-musical-instrument-recognizer/) in GitHub Pages Website. You may find more information about implementation in the documentation folder.
