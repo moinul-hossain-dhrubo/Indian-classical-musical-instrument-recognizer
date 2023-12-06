@@ -33,4 +33,4 @@ I deployed to model to HuggingFace Spaces Gradio App. The implementation can be 
 
 # API integration with GitHub Pages
 
-The deployed model API is integrated here in GitHub Pages Website. Implementation and other details can be found in docs folder.
+The deployed model API is integrated [here](https://moinul-hossain-dhrubo.github.io/Indian-classical-musical-instrument-recognizer/) in GitHub Pages Website. Implementation and other details can be found in docs folder.
