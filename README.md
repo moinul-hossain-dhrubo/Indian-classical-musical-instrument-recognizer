@@ -16,16 +16,16 @@ The model can classify 10 different types of indian classical musical instrument
 
 # Dataset Preparation
 
-Data collection : Downloaded from DuckDuckGo using each category name
-DataLoader: Used fastai DataBlock API to set up the DataLoader.
-Data Augmentation: fastai provides default data augmentation which operates in GPU.
+**Data collection :** Downloaded from DuckDuckGo using each category name. <br/>
+**DataLoader:** Used fastai DataBlock API to set up the DataLoader. <br/>
+**Data Augmentation:** fastai provides default data augmentation which operates in GPU.
 Details can be found in 
 
 # Training and Data Cleaning
 
-Training: Fine-tuned a resnet34 model for 2 epochs (5 times) and got upto ~95% accuracy.
+**Training:** Fine-tuned a resnet34 model for 2 epochs (5 times) and got upto ~95% accuracy.
 
-Data Cleaning: This part took the highest time. Since the data was collected using a search engine(DuckDuckgo), the images became noisy. Also, there were several redundant images.(e.g. I tried to download image the instrument santoor but it appears that santoor is also a beauty product company. So those types of images were also been downloaded) . I cleaned and updated data using fastai ImageClassifierCleaner, also some of them were manually added and deleted . I cleaned the data each time after training or finetuning, except for the last time which was the final iteration of the model.
+**Data Cleaning:** This part took the highest time. Since the data was collected using a search engine(DuckDuckgo), the images became noisy. Also, there were several redundant images.(e.g. I tried to download image the instrument santoor but it appears that santoor is also a beauty product company. So those types of images were also been downloaded) . I cleaned and updated data using fastai ImageClassifierCleaner, also some of them were manually added and deleted . I cleaned the data each time after training or finetuning, except for the last time which was the final iteration of the model.
 
 # Model Deployment
 
