@@ -25,7 +25,9 @@ Details can be found in `notebooks/data_prep_training_cleaning_and_inference.ipy
 
 # Training and Data Cleaning
 
-**Training:** Fine-tuned a resnet34 model for 3 epochs (3 times) and 2 epoch(2 times) respectively and got upto ~95% accuracy.
+**Training:** Fine-tuned a resnet34 model for 3 epochs (3 times) and 2 epoch(2 times) respectively and got upto ~94% accuracy.
+
+![tuning_image](https://github.com/moinul-hossain-dhrubo/Indian-classical-musical-instrument-recognizer/assets/122023969/5cbce310-81d0-4162-a156-a361379bd1f7)
 
 **Data Cleaning:** The majority of the time was spent on this. The photos became noisy as DuckDuckgo, a search engine, was used to gather the data. There were multiple redundant photos as well.(For instance, when I attempted to download the image of the instrument from Santoor, it turned out that there is a company with same name that makes cosmetics. Thus, those kinds of pictures were also downloaded). Using fastai ImageClassifierCleaner, I updated and cleaned the data. I also manually added and removed a few records. With the exception of the last instance, which was the model's final iteration, I cleaned the data after training or fine-tuning each time.
 
