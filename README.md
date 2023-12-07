@@ -33,6 +33,8 @@ Details can be found in `notebooks/data_prep_training_cleaning_and_inference.ipy
 
 I utilized the HuggingFace Spaces Gradio App to deploy the model. The implementation can be found in deployment folder or [here](https://huggingface.co/spaces/mhdhrubo/indian_classical_musical_instrument_recognizer).
 
+![interface_image](https://github.com/moinul-hossain-dhrubo/Indian-classical-musical-instrument-recognizer/assets/122023969/fe676bf9-62aa-4a4e-91cb-5235f2d3b989)
+
 # API integration with GitHub Pages
 
 The deployed model API is integrated [here](https://moinul-hossain-dhrubo.github.io/Indian-classical-musical-instrument-recognizer/) in GitHub Pages Website. You may find more information about implementation in the documentation folder.
