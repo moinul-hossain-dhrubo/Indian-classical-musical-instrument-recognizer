@@ -37,6 +37,6 @@ I utilized the HuggingFace Spaces Gradio App to deploy the model. The implementa
 
 ![interface_image](https://github.com/moinul-hossain-dhrubo/Indian-classical-musical-instrument-recognizer/assets/122023969/fe676bf9-62aa-4a4e-91cb-5235f2d3b989)
 
-# API integration with GitHub Pages
+# API embedding with GitHub Pages
 
-The deployed model API is integrated [here](https://moinul-hossain-dhrubo.github.io/Indian-classical-musical-instrument-recognizer/) in GitHub Pages Website. You may find more information about implementation in the documentation folder.
+The deployed model API is embedded [here](https://moinul-hossain-dhrubo.github.io/Indian-classical-musical-instrument-recognizer/) in GitHub Pages Website. You may find more information about implementation in the documentation folder.
