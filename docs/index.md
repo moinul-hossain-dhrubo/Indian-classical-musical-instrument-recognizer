@@ -3,7 +3,7 @@ title : Home
 layout : home
 ---
 
-# try out this Indian Classical Instrument Recognizer
+# Try out this Indian Classical Instrument Recognizer
 Our image recognition API can identify ten types of Eastern Indian classical musical instruments, that are :
 
 1. Harmonium
