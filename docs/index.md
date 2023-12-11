@@ -1,6 +1,6 @@
 ---
 title : Home
-layout : home
+layout : page
 ---
 
 # Try out this Indian Classical Instrument Recognizer
