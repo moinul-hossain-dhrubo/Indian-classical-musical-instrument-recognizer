@@ -9,3 +9,6 @@ description : An image classification API that can identify ten different indian
 
 author :
   name : Moinul Hossain Dhrubo
+
+sass:
+  style: :compressed
