@@ -61,4 +61,4 @@ Our image recognition API can identify ten types of Eastern Indian classical mus
 
 To experience the magic of our instrument recognizer, simply click the button below:
 
-<button class="try-it-out-button">Try it Out</button>
+<a href="instrument-recognizer.html" class="try-it-out-button">Try it Out</a>
