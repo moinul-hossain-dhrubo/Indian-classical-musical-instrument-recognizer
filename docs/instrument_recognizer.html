@@ -6,10 +6,11 @@ layout: page
 <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
 
 <div class="instrument-recognizer-container">
+  <p>The accuracy of this recognizer is ~94%. You will be able to see the likelihood of each of the ten instruments from the given image.</p>
+
   <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/4.7.1/gradio.js"></script>
   <gradio-app src="https://mhdhrubo-indian-classical-musical-instrument-recognizer.hf.space"></gradio-app>
 </div>
-
 
 <!-- <input id="photo" type="file">
 <div id="results"></div>
