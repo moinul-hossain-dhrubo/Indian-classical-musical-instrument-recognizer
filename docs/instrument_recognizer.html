@@ -15,9 +15,9 @@ layout: page
 <input id="photo" type="file">
 <div id="results"></div>
 
-<!-- <script type="module">
+<script type="module">
     async function loaded(reader) {   
-    const response = await fetch("https://mhdhrubo-indian-classical-musical-instrument-rec-e68e3ec.hf.space/--replicas/87352tsbp/predict", {
+    const response = await fetch("https://mhdhrubo-indian-classical-musical-instrument-rec-e68e3ec.hf.space/run/predict", {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({data: [reader.result]})});
     const json = await response.json();
@@ -30,9 +30,9 @@ layout: page
         reader.readAsDataURL(photo.files[0]);
     }
     photo.addEventListener('input', read);
-</script> -->
+</script>
 
-<script type = "module">
+<!-- <script type = "module">
     import { client } from "https://cdn.jsdelivr.net/npm/@gradio/client@0.1.4/dist/index.min.js";
     
     async function loaded(reader) {  
@@ -52,7 +52,7 @@ layout: page
     photo.addEventListener('input', read);
 
     
-</script>
+</script> -->
 </html>
 
 
