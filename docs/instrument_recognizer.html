@@ -6,6 +6,50 @@ layout: page
 <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
 
 <div class="instrument-recognizer-container">
+  <p>The accuracy of this recognizer is ~94%. Click on 'Choose File' to upload your photo, and then click 'Predict'.</p>
+
+  <input id="photo" type="file">
+  <button id="predictButton">Predict</button>
+  <div id="results"></div>
+
+  <script type="module">
+    import { client } from "https://cdn.jsdelivr.net/npm/@gradio/client@0.1.4/dist/index.min.js";
+
+    function predict() {
+      const photo = document.getElementById("photo");
+      const results = document.getElementById("results");
+
+      if (photo.files.length === 0) {
+        alert("Please choose a file before predicting.");
+        return;
+      }
+
+      const reader = new FileReader();
+
+      reader.addEventListener("load", async () => {
+        const app = await client("https://mhdhrubo-indian-classical-musical-instrument-recognizer.hf.space/--replicas/f1d18lqk6/");
+        const response = await app.predict("/predict", [reader.result]);
+        const label = response['data'][0]['label'];
+        results.innerHTML = `<div class="result-box"><img src="${reader.result}" width="500"><p>${label}</p></div>`;
+      });
+
+      reader.readAsDataURL(photo.files[0]);
+    }
+
+    const predictButton = document.getElementById("predictButton");
+    predictButton.addEventListener("click", predict);
+  </script>
+</div>
+
+
+<!-- ---
+title: Instrument Recognizer
+layout: page
+---
+
+<link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
+
+<div class="instrument-recognizer-container">
   <p>The accuracy of this recognizer is ~94%. Click on 'Choose File' and upload your photo.</p>
 
 
@@ -33,7 +77,7 @@ layout: page
 
     
 </script>
-</html>
+</html> -->
 
 
 
