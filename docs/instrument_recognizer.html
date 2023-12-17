@@ -10,14 +10,20 @@ layout: page
 
   <input id="photo" type="file">
   <button id="predictButton">Predict</button>
-  <div id="results"></div>
+  <div id="uploadedPhoto"></div>
+  <div id="predictionResult"></div>
 
   <script type="module">
     import { client } from "https://cdn.jsdelivr.net/npm/@gradio/client@0.1.4/dist/index.min.js";
 
-    function predict() {
+    function displayUploadedPhoto(reader) {
+      const uploadedPhotoContainer = document.getElementById("uploadedPhoto");
+      uploadedPhotoContainer.innerHTML = `<img src="${reader.result}" width="500">`;
+    }
+
+    async function predict() {
       const photo = document.getElementById("photo");
-      const results = document.getElementById("results");
+      const predictionResultContainer = document.getElementById("predictionResult");
 
       if (photo.files.length === 0) {
         alert("Please choose a file before predicting.");
@@ -27,10 +33,12 @@ layout: page
       const reader = new FileReader();
 
       reader.addEventListener("load", async () => {
+        displayUploadedPhoto(reader);
+
         const app = await client("https://mhdhrubo-indian-classical-musical-instrument-recognizer.hf.space/--replicas/f1d18lqk6/");
         const response = await app.predict("/predict", [reader.result]);
         const label = response['data'][0]['label'];
-        results.innerHTML = `<div class="result-box"><img src="${reader.result}" width="500"><p>${label}</p></div>`;
+        predictionResultContainer.innerHTML = `<p>Model predicts this instrument as "${label}"</p>`;
       });
 
       reader.readAsDataURL(photo.files[0]);
