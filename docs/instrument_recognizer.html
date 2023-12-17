@@ -3,13 +3,42 @@ title: Instrument Recognizer
 layout: page
 ---
 
-<link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
+<style>
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 9px #0069d9;
+  }
+
+  .button:hover {background-color: #0056b3;}
+
+  .button:active {
+    background-color: #0056b3;
+    box-shadow: 0 5px #0056b3;
+    transform: translateY(4px);
+  }
+
+  #uploadedPhoto img {
+    width: 500px;
+  }
+</style>
 
 <div class="instrument-recognizer-container">
-  <p>The accuracy of this recognizer is ~94%. Click on 'Choose File' to upload your photo, and then click 'Predict'.</p>
+  <p>The accuracy of this recognizer is ~94%. Click on 'Upload File' to upload your photo, and then click 'Predict'.</p>
 
-  <input id="photo" type="file">
-  <button id="predictButton">Predict</button>
+  <input id="photo" type="file" style="display: none;">
+  <label for="photo" class="button" style="cursor: pointer;">Upload File</label>
+  <button id="predictButton" class="button">Predict</button>
+
   <div id="uploadedPhoto"></div>
   <div id="predictionResult"></div>
 
@@ -18,7 +47,7 @@ layout: page
 
     function displayUploadedPhoto(reader) {
       const uploadedPhotoContainer = document.getElementById("uploadedPhoto");
-      uploadedPhotoContainer.innerHTML = `<img src="${reader.result}" width="500">`;
+      uploadedPhotoContainer.innerHTML = `<img src="${reader.result}" alt="Uploaded Photo">`;
     }
 
     async function predict() {
@@ -48,6 +77,7 @@ layout: page
     predictButton.addEventListener("click", predict);
   </script>
 </div>
+
 
 
 <!-- ---
