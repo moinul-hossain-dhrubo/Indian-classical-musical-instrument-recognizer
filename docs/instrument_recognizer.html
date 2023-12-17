@@ -47,6 +47,11 @@ layout: page
 
     function displayUploadedPhoto(reader) {
       const uploadedPhotoContainer = document.getElementById("uploadedPhoto");
+      const predictionResultContainer = document.getElementById("predictionResult");
+
+      // Reset the prediction result before displaying the uploaded photo
+      predictionResultContainer.innerHTML = '';
+
       uploadedPhotoContainer.innerHTML = `<img src="${reader.result}" alt="Uploaded Photo">`;
     }
 
@@ -82,10 +87,16 @@ layout: page
       }
     });
 
+    const uploadLabel = document.querySelector("label[for='photo']");
+    uploadLabel.addEventListener("click", () => {
+      uploadButton.click();
+    });
+
     const predictButton = document.getElementById("predictButton");
     predictButton.addEventListener("click", predict);
   </script>
 </div>
+
 
 
 
