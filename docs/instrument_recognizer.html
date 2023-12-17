@@ -63,6 +63,7 @@ layout: page
 
       reader.addEventListener("load", async () => {
         displayUploadedPhoto(reader);
+        predictionResultContainer.innerHTML = '<p>Predicting Instrument...</p>';
 
         const app = await client("https://mhdhrubo-indian-classical-musical-instrument-recognizer.hf.space/--replicas/f1d18lqk6/");
         const response = await app.predict("/predict", [reader.result]);
@@ -73,10 +74,19 @@ layout: page
       reader.readAsDataURL(photo.files[0]);
     }
 
+    const uploadButton = document.getElementById("photo");
+    uploadButton.addEventListener("change", () => {
+      const photo = document.getElementById("photo");
+      if (photo.files.length > 0) {
+        displayUploadedPhoto(new FileReader());
+      }
+    });
+
     const predictButton = document.getElementById("predictButton");
     predictButton.addEventListener("click", predict);
   </script>
 </div>
+
 
 
 
