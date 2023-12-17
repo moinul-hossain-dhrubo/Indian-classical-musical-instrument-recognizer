@@ -36,7 +36,7 @@ layout: page
     import { client } from "https://cdn.jsdelivr.net/npm/@gradio/client@0.1.4/dist/index.min.js";
     
     async function loaded(reader) {  
-        const app = await client("https://mhdhrubo-indian-classical-musical-instrument-rec-e68e3ec.hf.space/--replicas/87352tsbp/");
+        const app = await client("https://mhdhrubo-indian-classical-musical-instrument-recognizer.hf.space/--replicas/f7demzgpd/");
         const response = await app.predict("/predict", [reader.result]);
         console.log(response)
         // const json = await response.json();
