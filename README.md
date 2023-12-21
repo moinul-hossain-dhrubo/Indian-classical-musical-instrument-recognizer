@@ -25,6 +25,8 @@ The following ten categories of Indian classical musical instruments can be clas
 **Data Augmentation:** fastai provides default data augmentation which operates in GPU.
 Details can be found in `notebooks/data_prep_training_cleaning_and_inference.ipynb`.
 
+**Data Cleaning:** ImageClassifierCleaner() was used to clean the data. Additionally, some photos were added and deleted manually.
+
 ## Training and Data Cleaning
 
 **Training:** Fine-tuned a resnet34 model for 3 epochs (3 times) and 2 epoch(2 times) respectively and got upto ~94% accuracy.
