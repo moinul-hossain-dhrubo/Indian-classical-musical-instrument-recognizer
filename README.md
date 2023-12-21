@@ -47,4 +47,4 @@ The deployed model API is integrated [here](https://moinul-hossain-dhrubo.github
 
 Tested the model several times to check if it predicts correctly in real-time. 
 
-![real_time_test](https://github.com/moinul-hossain-dhrubo/Indian-classical-musical-instrument-recognizer/assets/122023969/e3375e5c-8bd4-4419-baf1-30075bc42470)
+![real_time_test](https://github.com/moinul-hossain-dhrubo/Indian-classical-musical-instrument-recognizer/assets/122023969/a5b1befb-fe16-4b83-b49e-7fbe1ef09407)
