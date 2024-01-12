@@ -98,7 +98,7 @@ layout: page
 
       reader.addEventListener("load", async () => {
         displayUploadedPhoto(reader);
-        predictionResultContainer.innerHTML = '<p>Predicting Instrument...<br/> May take a few seconds. Thanks for keeping patience.</p>';
+        predictionResultContainer.innerHTML = '<p>Predicting Instrument... This May take a few seconds. Thanks for keeping patience.</p>';
 
         const app = await client("https://mhdhrubo-indian-classical-musical-instrument-recognizer.hf.space/--replicas/f1d18lqk6/");
         const response = await app.predict("/predict", [reader.result]);
