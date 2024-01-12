@@ -5,7 +5,7 @@ layout: page
 
 <style>
   body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Georgia', serif;
     margin: 0;
     padding: 0;
     background-color: #f5f5f5;
@@ -68,7 +68,7 @@ layout: page
 </style>
 
 <div class="instrument-recognizer-container">
-  <p>Click on 'Upload File' to upload your photo or capture a photo with your device directly, and then click 'Predict'.</p>
+  <p>Click on 'Upload File' to upload your photo or Capture a photo with your device directly, and then click 'Predict'.</p>
 
   <input id="photo" type="file" style="display: none;">
   <label for="photo" class="button" style="cursor: pointer;">Upload File</label>
@@ -115,7 +115,7 @@ layout: page
       const label = response['data'][0]['label'];
       const confidence = response['data'][0]['confidence'];
       
-      predictionResultContainer.innerHTML = `<p>Model predicts this instrument as "${label}" with ${confidence.toFixed(2)}% confidence.</p>`;
+      predictionResultContainer.innerHTML = `<p>Model predicts this instrument as "${label}"</p>`;
     });
 
     reader.readAsDataURL(photo.files[0]);
