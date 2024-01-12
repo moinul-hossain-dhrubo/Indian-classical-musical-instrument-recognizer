@@ -33,7 +33,7 @@ layout: page
 </style>
 
 <div class="instrument-recognizer-container">
-  <p>The accuracy of this recognizer is ~94%. Click on 'Upload File' to upload your photo or Capture a photo with your device directly, and then click 'Predict'.</p>
+  <p>The accuracy of this recognizer is ~94%. Click on 'Upload File' to upload your photo or capture a photo with your device directly, and then click 'Predict'.</p>
 
   <input id="photo" type="file" style="display: none;">
   <label for="photo" class="button" style="cursor: pointer;">Upload File</label>
@@ -47,6 +47,11 @@ layout: page
 
     function displayUploadedPhoto(reader) {
       const uploadedPhotoContainer = document.getElementById("uploadedPhoto");
+      const predictionResultContainer = document.getElementById("predictionResult");
+
+      // Clear the prediction result before displaying the uploaded photo
+      predictionResultContainer.innerHTML = '';
+
       uploadedPhotoContainer.innerHTML = `<img src="${reader.result}" alt="Photo Uploaded Successfully. Click Predict to find the name of the instrument">`;
     }
 
@@ -86,46 +91,3 @@ layout: page
     predictButton.addEventListener("click", predict);
   </script>
 </div>
-
-
-
-
-<!-- ---
-title: Instrument Recognizer
-layout: page
----
-
-<link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
-
-<div class="instrument-recognizer-container">
-  <p>The accuracy of this recognizer is ~94%. Click on 'Choose File' and upload your photo.</p>
-
-
-<input id="photo" type="file">
-<div id="results"></div>
-
-<script type = "module">
-    import { client } from "https://cdn.jsdelivr.net/npm/@gradio/client@0.1.4/dist/index.min.js";
-    
-    async function loaded(reader) {  
-        const app = await client("https://mhdhrubo-indian-classical-musical-instrument-recognizer.hf.space/--replicas/f1d18lqk6/");
-        const response = await app.predict("/predict", [reader.result]);
-        console.log(response)
-        // const json = await response.json();
-        // const label = json['data'][0]['label'];
-        const label = response['data'][0]['label'];
-        results.innerHTML = `<br/> <img src = "${reader.result}" width="500"> <p>${label}</p>`;
-    }
-    function read() {
-        const reader = new FileReader();
-        reader.addEventListener('load', () => loaded(reader))
-        reader.readAsDataURL(photo.files[0]);
-    }
-    photo.addEventListener('input', read);
-
-    
-</script>
-</html> -->
-
-
-
