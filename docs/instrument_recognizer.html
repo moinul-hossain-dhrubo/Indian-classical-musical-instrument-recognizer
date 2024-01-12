@@ -5,7 +5,7 @@ layout: page
 
 <style>
   body {
-    font-family: 'Georgia', serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f5f5f5;
@@ -60,15 +60,10 @@ layout: page
   #predictionResult {
     margin-top: 20px;
   }
-
-  #disclaimer {
-    font-size: 14px;
-    margin-top: 20px;
-  }
 </style>
 
 <div class="instrument-recognizer-container">
-  <p>Click on 'Upload File' to upload your photo or Capture a photo with your device directly, and then click 'Predict'.</p>
+  <p>The accuracy of this recognizer is ~94%. Click on 'Upload File' to upload your photo or capture a photo with your device directly, and then click 'Predict'.</p>
 
   <input id="photo" type="file" style="display: none;">
   <label for="photo" class="button" style="cursor: pointer;">Upload File</label>
@@ -77,65 +72,52 @@ layout: page
   <div id="uploadedPhoto"></div>
   <div id="predictionResult"></div>
 
-  <p id="disclaimer">The model can make mistakes with 94% accuracy.</p>
-</div>
+  <script type="module">
+    import { client } from "https://cdn.jsdelivr.net/npm/@gradio/client@0.1.4/dist/index.min.js";
 
-<p style="font-size: 12px; margin-top: 30px; text-align: left; color: #888;">© Moinul Hossain Dhrubo</p>
+    function displayUploadedPhoto(reader) {
+      const uploadedPhotoContainer = document.getElementById("uploadedPhoto");
+      const predictionResultContainer = document.getElementById("predictionResult");
 
-<!-- Add this script to your page -->
-<script type="module">
-  import { client } from "https://cdn.jsdelivr.net/npm/@gradio/client@2.0.0/dist/index.esm.min.mjs";
+      // Clear the prediction result before displaying the uploaded photo
+      predictionResultContainer.innerHTML = '';
 
-  function displayUploadedPhoto(reader) {
-    const uploadedPhotoContainer = document.getElementById("uploadedPhoto");
-    const predictionResultContainer = document.getElementById("predictionResult");
-
-    // Clear the prediction result before displaying the uploaded photo
-    predictionResultContainer.innerHTML = '';
-
-    uploadedPhotoContainer.innerHTML = `<img src="${reader.result}" alt="Photo Uploaded Successfully. Click Predict to find the name of the instrument">`;
-  }
-
-  async function predict() {
-    const photo = document.getElementById("photo");
-    const predictionResultContainer = document.getElementById("predictionResult");
-
-    if (photo.files.length === 0) {
-      alert("Please choose a file before predicting.");
-      return;
+      uploadedPhotoContainer.innerHTML = `<img src="${reader.result}" alt="Photo Uploaded Successfully. Click Predict to find the name of the instrument">`;
     }
 
-    const reader = new FileReader();
+    async function predict() {
+      const photo = document.getElementById("photo");
+      const predictionResultContainer = document.getElementById("predictionResult");
 
-    reader.addEventListener("load", async () => {
-      displayUploadedPhoto(reader);
-      predictionResultContainer.innerHTML = '<p>Predicting Instrument...<br/> May take a few seconds. Thanks for keeping patience.</p>';
+      if (photo.files.length === 0) {
+        alert("Please choose a file before predicting.");
+        return;
+      }
 
-      try {
-        const app = await client("https://mhdhrubo-indian-classical-musical-instrument-recognizer.hf.space/--replicas/v16py/");
+      const reader = new FileReader();
+
+      reader.addEventListener("load", async () => {
+        displayUploadedPhoto(reader);
+        predictionResultContainer.innerHTML = '<p>Predicting Instrument... This May take a few seconds. Thanks for keeping patience.</p>';
+
+        const app = await client("https://mhdhrubo-indian-classical-musical-instrument-recognizer.hf.space/--replicas/f1d18lqk6/");
         const response = await app.predict("/predict", [reader.result]);
         const label = response['data'][0]['label'];
-        const confidence = response['data'][0]['confidence'];
-        
-        predictionResultContainer.innerHTML = `<p>Model predicts this instrument as "${label}" with ${confidence.toFixed(2)}% confidence.</p>`;
-      } catch (error) {
-        console.error("Error predicting:", error);
-        predictionResultContainer.innerHTML = '<p>Error predicting instrument. Please try again.</p>';
+        predictionResultContainer.innerHTML = `<p>Model predicts this instrument as "${label}"</p>`;
+      });
+
+      reader.readAsDataURL(photo.files[0]);
+    }
+
+    const uploadButton = document.getElementById("photo");
+    uploadButton.addEventListener("change", () => {
+      const photo = document.getElementById("photo");
+      if (photo.files.length > 0) {
+        displayUploadedPhoto(new FileReader());
       }
     });
 
-    reader.readAsDataURL(photo.files[0]);
-  }
-
-  const uploadButton = document.getElementById("photo");
-  uploadButton.addEventListener("change", () => {
-    const photo = document.getElementById("photo");
-    if (photo.files.length > 0) {
-      displayUploadedPhoto(new FileReader());
-    }
-  });
-
-  const predictButton = document.getElementById("predictButton");
-  predictButton.addEventListener("click", predict);
-</script>
-
+    const predictButton = document.getElementById("predictButton");
+    predictButton.addEventListener("click", predict);
+  </script>
+</div>
