@@ -33,7 +33,7 @@ layout: page
 </style>
 
 <div class="instrument-recognizer-container">
-  <p>The accuracy of this recognizer is ~94%. Click on 'Upload File' to upload your photo, and then click 'Predict'.</p>
+  <p>The accuracy of this recognizer is ~94%. Click on 'Upload File' to upload your photo or Capture a photo with your device directly, and then click 'Predict'.</p>
 
   <input id="photo" type="file" style="display: none;">
   <label for="photo" class="button" style="cursor: pointer;">Upload File</label>
@@ -47,7 +47,7 @@ layout: page
 
     function displayUploadedPhoto(reader) {
       const uploadedPhotoContainer = document.getElementById("uploadedPhoto");
-      uploadedPhotoContainer.innerHTML = `<img src="${reader.result}" alt="Uploaded Photo">`;
+      uploadedPhotoContainer.innerHTML = `<img src="${reader.result}" alt="Photo Uploaded Successfully. Click Predict to find the name of the instrument">`;
     }
 
     async function predict() {
