@@ -63,14 +63,19 @@ layout: page
 </style>
 
 <div class="instrument-recognizer-container">
-  <p>The accuracy of this recognizer is ~94%. Click on 'Upload File' to upload your photo or capture a photo with your device directly, and then click 'Predict'.</p>
+  <p>Click on 'Upload File' to upload your photo or Capture a photo with your device directly, and then click 'Predict'.</p>
 
   <input id="photo" type="file" style="display: none;">
   <label for="photo" class="button" style="cursor: pointer;">Upload File</label>
   <button id="predictButton" class="button">Predict</button>
 
   <div id="uploadedPhoto"></div>
-  <div id="predictionResult"></div>
+  <div id="predictionResult">
+
+  <p id="disclaimer">The model comes with with 94% accuracy. So it can make mistakes</p>
+</div>
+
+<p style="font-size: 14px; margin-top: 30px; text-align: left; color: #888;">© Moinul Hossain Dhrubo</p>
 
   <script type="module">
     import { client } from "https://cdn.jsdelivr.net/npm/@gradio/client@0.1.4/dist/index.min.js";
